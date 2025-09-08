@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: min(1400px, 95vw);
   margin: 0 auto;
   background: white;
   border-radius: 12px;
@@ -40,7 +40,7 @@ header p {
 
 .comparison-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
   gap: 2px;
   background: #e5e7eb;
   margin: 2px;
@@ -169,7 +169,18 @@ tbody tr td:first-child {
   color: #4b5563;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1220px) {
+  .container {
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  body {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 700px) {
   .comparison-grid {
     grid-template-columns: 1fr;
   }
@@ -181,7 +192,9 @@ tbody tr td:first-child {
   .library-column:last-child {
     border-bottom: none;
   }
+}
 
+@media (max-width: 1024px) {
   header h1 {
     font-size: 2rem;
   }
@@ -193,6 +206,43 @@ tbody tr td:first-child {
 
   body {
     padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .library-column {
+    padding: 25px;
+  }
+
+  .demo-section {
+    margin-bottom: 25px;
+    padding: 15px;
+  }
+
+  .code-section {
+    margin-top: 25px;
+  }
+
+  pre {
+    font-size: 0.85rem;
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    padding: 30px 20px;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  .comparison-table {
+    overflow-x: auto;
+  }
+  
+  .comparison-table table {
+    white-space: nowrap;
   }
 }
 
@@ -210,19 +260,39 @@ tbody tr td:first-child {
   }
 
   .library-column {
-    padding: 20px;
-  }
-
-  pre {
-    font-size: 0.8rem;
     padding: 15px;
   }
 
+  .demo-section {
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+
+  pre {
+    font-size: 0.75rem;
+    padding: 12px;
+    line-height: 1.4;
+  }
+
   table {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    min-width: 500px;
   }
 
   th, td {
-    padding: 10px;
+    padding: 8px;
+  }
+
+  .comparison-table {
+    padding: 20px 10px;
+  }
+
+  .info {
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
   }
 }
