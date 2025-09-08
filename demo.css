@@ -6,7 +6,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #2d5016;
   min-height: 100vh;
   padding: 20px;
 }
@@ -14,17 +14,19 @@ body {
 .container {
   max-width: min(1400px, 95vw);
   margin: 0 auto;
-  background: white;
+  background: #fffef7;
+  border: 8px solid #000000;
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
 header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #2d5016;
   color: white;
   padding: 40px;
   text-align: center;
+  border-bottom: 8px solid #000000;
 }
 
 header h1 {
@@ -42,12 +44,12 @@ header p {
   display: grid;
   grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
   gap: 2px;
-  background: #e5e7eb;
+  background: #e6d8a6;
   margin: 2px;
 }
 
 .library-column {
-  background: white;
+  background: #fefdf5;
   padding: 30px;
 }
 
@@ -56,11 +58,11 @@ header p {
   color: #1f2937;
   margin-bottom: 10px;
   padding-bottom: 15px;
-  border-bottom: 3px solid #667eea;
+  border-bottom: 3px solid #2d5016;
 }
 
 .library-column:last-child h2 {
-  border-bottom-color: #764ba2;
+  border-bottom-color: #2d5016;
 }
 
 .info {
@@ -72,8 +74,8 @@ header p {
 .badge {
   display: inline-block;
   padding: 5px 12px;
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #f5f2e8;
+  color: #6b5b47;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
@@ -82,9 +84,9 @@ header p {
 .demo-section {
   margin-bottom: 30px;
   padding: 20px;
-  background: #f9fafb;
+  background: #fcfbf3;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e6d8a6;
 }
 
 .demo-section h3 {
@@ -119,9 +121,50 @@ code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
 
+/* Style select elements */
+select {
+  background: #f9f7ed !important;
+  border: 1px solid #e6d8a6 !important;
+}
+
+/* Style Selectize dropdowns */
+.selectize-control .selectize-input,
+.selectize-control.single .selectize-input.input-active,
+.selectize-control .selectize-dropdown {
+  background: #f9f7ed !important;
+  border-color: #e6d8a6 !important;
+}
+
+/* Style Tom Select dropdowns */
+.ts-control,
+.ts-control.single,
+.ts-dropdown {
+  background: #f9f7ed !important;
+  border-color: #e6d8a6 !important;
+}
+
+/* Style selected items and dropdown options */
+.selectize-control .selectize-input .item,
+.selectize-dropdown .option {
+  background: #e8e0c8 !important;
+  color: #4a3f32 !important;
+}
+
+.ts-control .item,
+.ts-dropdown .option {
+  background: #e8e0c8 !important;
+  color: #4a3f32 !important;
+}
+
+.ts-dropdown .option:hover,
+.selectize-dropdown .option:hover {
+  background: #ddd4b8 !important;
+  color: #3d3428 !important;
+}
+
 .comparison-table {
   padding: 40px;
-  background: #f9fafb;
+  background: #fefdf5;
 }
 
 .comparison-table h2 {
@@ -134,14 +177,14 @@ code {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: #fffef7;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 thead {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #2d5016;
   color: white;
 }
 
@@ -161,7 +204,7 @@ tbody tr:last-child td {
 }
 
 tbody tr:hover {
-  background: #f9fafb;
+  background: #faf9f1;
 }
 
 tbody tr td:first-child {
