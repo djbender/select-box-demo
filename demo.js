@@ -66,78 +66,57 @@ const cityGroups = {
 
 // Initialize Selectize instances
 $(document).ready(function() {
+  console.log('Initializing Selectize instances...');
+  
   // Selectize Basic Select
-  $('#selectize-basic').selectize({
-    create: false,
-    sortField: 'text',
-    searchField: 'text',
-    options: countries,
-    placeholder: 'Select a country...',
-    maxItems: 1
-  });
-
-  // Selectize Multi-Select with Tags
-  $('#selectize-tags').selectize({
-    delimiter: ',',
-    persist: false,
-    create: function(input) {
-      return {
-        value: input.toLowerCase().replace(/\s+/g, '-'),
-        text: input
-      }
-    },
-    options: programmingTags,
-    placeholder: 'Choose tags...',
-    maxItems: null,
-    closeAfterSelect: true,
-    plugins: ['remove_button']
-  });
-
-  // Selectize Option Groups
-  $('#selectize-groups').selectize({
-    sortField: 'text',
-    searchField: 'text',
-    optgroups: cityGroups.optgroups,
-    options: cityGroups.options,
-    placeholder: 'Select a city...',
-    optgroupField: 'optgroup',
-    labelField: 'text',
-    valueField: 'value'
-  });
-});
-
-// Initialize Tom Select instances
-document.addEventListener('DOMContentLoaded', function() {
-  // Tom Select Basic Select
-  new TomSelect('#tom-basic', {
+  const selectizeBasic = $('#selectize-basic').selectize({
     create: false,
     sortField: 'text',
     searchField: 'text',
     options: countries,
     placeholder: 'Select a country...',
     maxItems: 1,
-    allowEmptyOption: true
+    onChange: function(value) {
+      console.log('Selectize Basic - Selection changed:', value);
+    },
+    onFocus: function() {
+      console.log('Selectize Basic - Focused');
+    },
+    onBlur: function() {
+      console.log('Selectize Basic - Blurred');
+    }
   });
 
-  // Tom Select Multi-Select with Tags
-  new TomSelect('#tom-tags', {
+  // Selectize Multi-Select with Tags
+  const selectizeTags = $('#selectize-tags').selectize({
     delimiter: ',',
     persist: false,
     create: function(input) {
-      return {
+      const newTag = {
         value: input.toLowerCase().replace(/\s+/g, '-'),
         text: input
-      }
+      };
+      console.log('Selectize Tags - Created new tag:', newTag);
+      return newTag;
     },
     options: programmingTags,
     placeholder: 'Choose tags...',
     maxItems: null,
-    plugins: ['remove_button', 'clear_button'],
-    closeAfterSelect: true
+    closeAfterSelect: true,
+    plugins: ['remove_button'],
+    onChange: function(value) {
+      console.log('Selectize Tags - Selection changed:', value);
+    },
+    onItemAdd: function(value, item) {
+      console.log('Selectize Tags - Item added:', value);
+    },
+    onItemRemove: function(value) {
+      console.log('Selectize Tags - Item removed:', value);
+    }
   });
 
-  // Tom Select Option Groups
-  new TomSelect('#tom-groups', {
+  // Selectize Option Groups
+  const selectizeGroups = $('#selectize-groups').selectize({
     sortField: 'text',
     searchField: 'text',
     optgroups: cityGroups.optgroups,
@@ -146,6 +125,89 @@ document.addEventListener('DOMContentLoaded', function() {
     optgroupField: 'optgroup',
     labelField: 'text',
     valueField: 'value',
-    plugins: ['clear_button']
+    onChange: function(value) {
+      console.log('Selectize Groups - Selection changed:', value);
+    },
+    onFocus: function() {
+      console.log('Selectize Groups - Focused');
+    },
+    onBlur: function() {
+      console.log('Selectize Groups - Blurred');
+    }
+  });
+});
+
+// Initialize Tom Select instances
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Initializing Tom Select instances...');
+  
+  // Tom Select Basic Select
+  const tomBasic = new TomSelect('#tom-basic', {
+    create: false,
+    sortField: 'text',
+    searchField: 'text',
+    options: countries,
+    placeholder: 'Select a country...',
+    maxItems: 1,
+    allowEmptyOption: true,
+    onChange: function(value) {
+      console.log('Tom Select Basic - Selection changed:', value);
+    },
+    onFocus: function() {
+      console.log('Tom Select Basic - Focused');
+    },
+    onBlur: function() {
+      console.log('Tom Select Basic - Blurred');
+    }
+  });
+
+  // Tom Select Multi-Select with Tags
+  const tomTags = new TomSelect('#tom-tags', {
+    delimiter: ',',
+    persist: false,
+    create: function(input) {
+      const newTag = {
+        value: input.toLowerCase().replace(/\s+/g, '-'),
+        text: input
+      };
+      console.log('Tom Select Tags - Created new tag:', newTag);
+      return newTag;
+    },
+    options: programmingTags,
+    placeholder: 'Choose tags...',
+    maxItems: null,
+    plugins: ['remove_button', 'clear_button'],
+    closeAfterSelect: true,
+    onChange: function(value) {
+      console.log('Tom Select Tags - Selection changed:', value);
+    },
+    onItemAdd: function(value, item) {
+      console.log('Tom Select Tags - Item added:', value);
+    },
+    onItemRemove: function(value) {
+      console.log('Tom Select Tags - Item removed:', value);
+    }
+  });
+
+  // Tom Select Option Groups
+  const tomGroups = new TomSelect('#tom-groups', {
+    sortField: 'text',
+    searchField: 'text',
+    optgroups: cityGroups.optgroups,
+    options: cityGroups.options,
+    placeholder: 'Select a city...',
+    optgroupField: 'optgroup',
+    labelField: 'text',
+    valueField: 'value',
+    plugins: ['clear_button'],
+    onChange: function(value) {
+      console.log('Tom Select Groups - Selection changed:', value);
+    },
+    onFocus: function() {
+      console.log('Tom Select Groups - Focused');
+    },
+    onBlur: function() {
+      console.log('Tom Select Groups - Blurred');
+    }
   });
 });
