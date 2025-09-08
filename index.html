@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selectize vs Tom Select Demo</title>
+
+  <!-- jQuery for Selectize -->
+  <script src="/vendor/jquery/dist/jquery.min.js"></script>
+
+  <!-- Selectize CSS and JS -->
+  <link rel="stylesheet" href="/vendor/selectize/dist/css/selectize.css">
+  <link rel="stylesheet" href="/vendor/selectize/dist/css/selectize.bootstrap5.css">
+  <script src="/vendor/selectize/dist/js/selectize.min.js"></script>
+
+  <!-- Tom Select CSS and JS -->
+  <link rel="stylesheet" href="/vendor/tom-select/dist/css/tom-select.css">
+  <script src="/vendor/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Selectize vs Tom Select Comparison</h1>
+      <p>A side-by-side comparison of two popular select enhancement libraries</p>
+    </header>
+
+    <div class="comparison-grid">
+      <!-- Selectize Column -->
+      <div class="library-column">
+        <h2>Selectize.js</h2>
+        <div class="info">
+          <span class="badge">jQuery Required</span>
+          <span class="badge">v0.15.2</span>
+        </div>
+
+        <div class="demo-section">
+          <h3>Basic Select</h3>
+          <select id="selectize-basic" placeholder="Select a country...">
+            <option value="">Select a country...</option>
+          </select>
+        </div>
+
+        <div class="demo-section">
+          <h3>Multi-Select with Tags</h3>
+          <select id="selectize-tags" multiple placeholder="Choose tags...">
+            <option value="">Choose tags...</option>
+          </select>
+        </div>
+
+        <div class="demo-section">
+          <h3>Option Groups</h3>
+          <select id="selectize-groups" placeholder="Select a city...">
+            <option value="">Select a city...</option>
+          </select>
+        </div>
+
+        <div class="code-section">
+          <h3>Implementation Code</h3>
+          <pre><code>// Basic Select
+$('#selectize-basic').selectize({
+  create: false,
+  sortField: 'text',
+  searchField: 'text',
+  options: [
+    {value: 'us', text: 'United States'},
+    {value: 'uk', text: 'United Kingdom'},
+    {value: 'ca', text: 'Canada'}
+  ]
+});
+
+// Multi-Select with Tags
+$('#selectize-tags').selectize({
+  delimiter: ',',
+  persist: false,
+  create: function(input) {
+    return {
+      value: input,
+      text: input
+    }
+  },
+  options: [
+    {value: 'javascript', text: 'JavaScript'},
+    {value: 'python', text: 'Python'},
+    {value: 'react', text: 'React'}
+  ]
+});
+
+// Option Groups
+$('#selectize-groups').selectize({
+  optgroups: [
+    {value: 'usa', label: 'United States'},
+    {value: 'canada', label: 'Canada'}
+  ],
+  options: [
+    {value: 'nyc', text: 'New York', optgroup: 'usa'},
+    {value: 'sf', text: 'San Francisco', optgroup: 'usa'},
+    {value: 'toronto', text: 'Toronto', optgroup: 'canada'}
+  ]
+});</code></pre>
+        </div>
+      </div>
+
+      <!-- Tom Select Column -->
+      <div class="library-column">
+        <h2>Tom Select</h2>
+        <div class="info">
+          <span class="badge">No Dependencies</span>
+          <span class="badge">v2.4.3</span>
+        </div>
+
+        <div class="demo-section">
+          <h3>Basic Select</h3>
+          <select id="tom-basic" placeholder="Select a country...">
+            <option value="">Select a country...</option>
+          </select>
+        </div>
+
+        <div class="demo-section">
+          <h3>Multi-Select with Tags</h3>
+          <select id="tom-tags" multiple placeholder="Choose tags...">
+            <option value="">Choose tags...</option>
+          </select>
+        </div>
+
+        <div class="demo-section">
+          <h3>Option Groups</h3>
+          <select id="tom-groups" placeholder="Select a city...">
+            <option value="">Select a city...</option>
+          </select>
+        </div>
+
+        <div class="code-section">
+          <h3>Implementation Code</h3>
+          <pre><code>// Basic Select
+new TomSelect('#tom-basic', {
+  create: false,
+  sortField: 'text',
+  searchField: 'text',
+  options: [
+    {value: 'us', text: 'United States'},
+    {value: 'uk', text: 'United Kingdom'},
+    {value: 'ca', text: 'Canada'}
+  ]
+});
+
+// Multi-Select with Tags
+new TomSelect('#tom-tags', {
+  delimiter: ',',
+  persist: false,
+  create: function(input) {
+    return {
+      value: input,
+      text: input
+    }
+  },
+  options: [
+    {value: 'javascript', text: 'JavaScript'},
+    {value: 'python', text: 'Python'},
+    {value: 'react', text: 'React'}
+  ],
+  plugins: ['remove_button']
+});
+
+// Option Groups
+new TomSelect('#tom-groups', {
+  optgroups: [
+    {value: 'usa', label: 'United States'},
+    {value: 'canada', label: 'Canada'}
+  ],
+  options: [
+    {value: 'nyc', text: 'New York', optgroup: 'usa'},
+    {value: 'sf', text: 'San Francisco', optgroup: 'usa'},
+    {value: 'toronto', text: 'Toronto', optgroup: 'canada'}
+  ]
+});</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="comparison-table">
+      <h2>Feature Comparison</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Selectize</th>
+            <th>Tom Select</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dependencies</td>
+            <td>jQuery required</td>
+            <td>No dependencies</td>
+          </tr>
+          <tr>
+            <td>File Size (minified)</td>
+            <td>~65 KB</td>
+            <td>~40 KB</td>
+          </tr>
+          <tr>
+            <td>Plugin System</td>
+            <td>Limited</td>
+            <td>Extensive</td>
+          </tr>
+          <tr>
+            <td>Virtual Scrolling</td>
+            <td>No</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>TypeScript Support</td>
+            <td>Community types</td>
+            <td>Built-in</td>
+          </tr>
+          <tr>
+            <td>Accessibility</td>
+            <td>Basic</td>
+            <td>Enhanced ARIA</td>
+          </tr>
+          <tr>
+            <td>Active Development</td>
+            <td>Maintenance mode</td>
+            <td>Actively developed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="demo.js"></script>
+</body>
+</html>
