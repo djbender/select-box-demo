@@ -162,6 +162,57 @@ select {
   color: #3d3428 !important;
 }
 
+.code-differences {
+  padding: 40px;
+  background: #fefdf5;
+  border-top: 1px solid #e6d8a6;
+}
+
+.code-differences h2 {
+  font-size: 1.8rem;
+  color: #2d5016;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.differences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.difference-item {
+  background: #fcfbf3;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e6d8a6;
+}
+
+.difference-item h3 {
+  font-size: 1.2rem;
+  color: #2d5016;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.difference-item p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.difference-item p:last-child {
+  margin-bottom: 0;
+}
+
+.difference-item code {
+  background: #e8e0c8;
+  color: #4a3f32;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
 .comparison-table {
   padding: 40px;
   background: #fefdf5;

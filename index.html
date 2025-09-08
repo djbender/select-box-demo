@@ -251,6 +251,35 @@ new TomSelect('#tom-groups', {
       </div>
     </div>
 
+    <div class="code-differences">
+      <h2>Key Code Differences</h2>
+      <div class="differences-grid">
+        <div class="difference-item">
+          <h3>Initialization</h3>
+          <p><strong>Selectize:</strong> Uses jQuery plugin syntax with <code>$('#element').selectize()</code></p>
+          <p><strong>Tom Select:</strong> Uses constructor syntax with <code>new TomSelect('#element')</code></p>
+        </div>
+        
+        <div class="difference-item">
+          <h3>Dependencies</h3>
+          <p><strong>Selectize:</strong> Requires jQuery as a dependency</p>
+          <p><strong>Tom Select:</strong> No dependencies - works with vanilla JavaScript</p>
+        </div>
+        
+        <div class="difference-item">
+          <h3>Plugin System</h3>
+          <p><strong>Selectize:</strong> Has essential plugins like <code>remove_button</code> and <code>clear_button</code></p>
+          <p><strong>Tom Select:</strong> Larger plugin ecosystem with additional options like virtual scrolling and checkbox modes</p>
+        </div>
+        
+        <div class="difference-item">
+          <h3>Configuration</h3>
+          <p><strong>Selectize:</strong> Simpler configuration options</p>
+          <p><strong>Tom Select:</strong> More granular control with options like <code>allowEmptyOption</code></p>
+        </div>
+      </div>
+    </div>
+
     <div class="comparison-table">
       <h2>Feature Comparison</h2>
       <table>
