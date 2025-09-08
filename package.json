@@ -2,16 +2,11 @@
   "name": "select-box-demo",
   "packageManager": "yarn@4.9.2",
   "scripts": {
-    "start": "yarn node server.js",
-    "test": "yarn node server.test.js",
-    "test:coverage": "yarn c8 --include=server.js --reporter=html node server.test.js"
+    "demo": "open index.html"
   },
   "dependencies": {
     "@selectize/selectize": "^0.15.2",
     "jquery": "3",
     "tom-select": "^2.4.3"
-  },
-  "devDependencies": {
-    "c8": "^8.0.1"
   }
 }
