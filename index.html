@@ -63,16 +63,50 @@
 
         <div class="code-section">
           <h3>Implementation Code</h3>
-          <pre><code class="language-javascript">// Basic Select
+          <pre><code class="language-javascript">// Sample data
+const countries = [
+  {value: 'us', text: 'United States'},
+  {value: 'uk', text: 'United Kingdom'},
+  {value: 'ca', text: 'Canada'},
+  // ... more countries
+];
+
+const programmingTags = [
+  {value: 'javascript', text: 'JavaScript'},
+  {value: 'python', text: 'Python'},
+  {value: 'java', text: 'Java'},
+  // ... more languages
+];
+
+const cityGroups = {
+  optgroups: [
+    {value: 'usa', label: 'United States'},
+    {value: 'canada', label: 'Canada'},
+    // ... more countries
+  ],
+  options: [
+    {
+      value: 'nyc',
+      text: 'New York City',
+      optgroup: 'usa'
+    },
+    {
+      value: 'toronto',
+      text: 'Toronto',
+      optgroup: 'canada'
+    },
+    // ... more cities
+  ]
+};
+
+// Basic Select
 $('#selectize-basic').selectize({
   create: false,
   sortField: 'text',
   searchField: 'text',
-  options: [
-    {value: 'us', text: 'United States'},
-    {value: 'uk', text: 'United Kingdom'},
-    {value: 'ca', text: 'Canada'}
-  ]
+  options: countries,
+  placeholder: 'Select a country...',
+  maxItems: 1
 });
 
 // Multi-Select with Tags
@@ -81,29 +115,27 @@ $('#selectize-tags').selectize({
   persist: false,
   create: function(input) {
     return {
-      value: input,
+      value: input.toLowerCase().replace(/\s+/g, '-'),
       text: input
     }
   },
-  options: [
-    {value: 'javascript', text: 'JavaScript'},
-    {value: 'python', text: 'Python'},
-    {value: 'react', text: 'React'}
-  ],
+  options: programmingTags,
+  placeholder: 'Choose tags...',
+  maxItems: null,
+  closeAfterSelect: true,
   plugins: ['remove_button']
 });
 
 // Option Groups
 $('#selectize-groups').selectize({
-  optgroups: [
-    {value: 'usa', label: 'United States'},
-    {value: 'canada', label: 'Canada'}
-  ],
-  options: [
-    {value: 'nyc', text: 'New York', optgroup: 'usa'},
-    {value: 'sf', text: 'San Francisco', optgroup: 'usa'},
-    {value: 'toronto', text: 'Toronto', optgroup: 'canada'}
-  ]
+  sortField: 'text',
+  searchField: 'text',
+  optgroups: cityGroups.optgroups,
+  options: cityGroups.options,
+  placeholder: 'Select a city...',
+  optgroupField: 'optgroup',
+  labelField: 'text',
+  valueField: 'value'
 });</code></pre>
         </div>
       </div>
@@ -139,16 +171,51 @@ $('#selectize-groups').selectize({
 
         <div class="code-section">
           <h3>Implementation Code</h3>
-          <pre><code class="language-javascript">// Basic Select
+          <pre><code class="language-javascript">// Sample data
+const countries = [
+  {value: 'us', text: 'United States'},
+  {value: 'uk', text: 'United Kingdom'},
+  {value: 'ca', text: 'Canada'},
+  // ... more countries
+];
+
+const programmingTags = [
+  {value: 'javascript', text: 'JavaScript'},
+  {value: 'python', text: 'Python'},
+  {value: 'java', text: 'Java'},
+  // ... more languages
+];
+
+const cityGroups = {
+  optgroups: [
+    {value: 'usa', label: 'United States'},
+    {value: 'canada', label: 'Canada'},
+    // ... more countries
+  ],
+  options: [
+    {
+      value: 'nyc',
+      text: 'New York City',
+      optgroup: 'usa'
+    },
+    {
+      value: 'toronto',
+      text: 'Toronto',
+      optgroup: 'canada'
+    },
+    // ... more cities
+  ]
+};
+
+// Basic Select
 new TomSelect('#tom-basic', {
   create: false,
   sortField: 'text',
   searchField: 'text',
-  options: [
-    {value: 'us', text: 'United States'},
-    {value: 'uk', text: 'United Kingdom'},
-    {value: 'ca', text: 'Canada'}
-  ]
+  options: countries,
+  placeholder: 'Select a country...',
+  maxItems: 1,
+  allowEmptyOption: true
 });
 
 // Multi-Select with Tags
@@ -157,29 +224,28 @@ new TomSelect('#tom-tags', {
   persist: false,
   create: function(input) {
     return {
-      value: input,
+      value: input.toLowerCase().replace(/\s+/g, '-'),
       text: input
     }
   },
-  options: [
-    {value: 'javascript', text: 'JavaScript'},
-    {value: 'python', text: 'Python'},
-    {value: 'react', text: 'React'}
-  ],
-  plugins: ['remove_button']
+  options: programmingTags,
+  placeholder: 'Choose tags...',
+  maxItems: null,
+  plugins: ['remove_button', 'clear_button'],
+  closeAfterSelect: true
 });
 
 // Option Groups
 new TomSelect('#tom-groups', {
-  optgroups: [
-    {value: 'usa', label: 'United States'},
-    {value: 'canada', label: 'Canada'}
-  ],
-  options: [
-    {value: 'nyc', text: 'New York', optgroup: 'usa'},
-    {value: 'sf', text: 'San Francisco', optgroup: 'usa'},
-    {value: 'toronto', text: 'Toronto', optgroup: 'canada'}
-  ]
+  sortField: 'text',
+  searchField: 'text',
+  optgroups: cityGroups.optgroups,
+  options: cityGroups.options,
+  placeholder: 'Select a city...',
+  optgroupField: 'optgroup',
+  labelField: 'text',
+  valueField: 'value',
+  plugins: ['clear_button']
 });</code></pre>
         </div>
       </div>
