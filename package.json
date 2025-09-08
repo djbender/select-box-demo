@@ -1,0 +1,9 @@
+{
+  "name": "select-box-demo",
+  "packageManager": "yarn@4.9.2",
+  "dependencies": {
+    "@selectize/selectize": "^0.15.2",
+    "jquery": "3",
+    "tom-select": "^2.4.3"
+  }
+}
