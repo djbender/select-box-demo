@@ -89,7 +89,8 @@ $(document).ready(function() {
     options: programmingTags,
     placeholder: 'Choose tags...',
     maxItems: null,
-    closeAfterSelect: true
+    closeAfterSelect: true,
+    plugins: ['remove_button']
   });
 
   // Selectize Option Groups
